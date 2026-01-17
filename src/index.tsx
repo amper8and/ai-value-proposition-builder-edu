@@ -18,7 +18,7 @@ app.get('/', (c) => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MTN Education Solution Developer (Demo)</title>
+        <title>AI-Value Proposition Developer (Education)</title>
         
         <!-- Tailwind CSS with MTN Colors -->
         <script src="https://cdn.tailwindcss.com"></script>
@@ -52,7 +52,7 @@ app.get('/', (c) => {
             <div class="flex items-center justify-center h-screen">
                 <div class="text-center">
                     <i class="fas fa-spinner fa-spin text-yellow-400 text-4xl mb-4"></i>
-                    <p class="text-gray-600">Loading MTN Education Solution Developer...</p>
+                    <p class="text-gray-600">Loading AI-Value Proposition Developer...</p>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@ app.get('/', (c) => {
 app.get('/health', (c) => {
   return c.json({ 
     status: 'healthy', 
-    service: 'MTN Education Solution Developer',
+    service: 'AI-Value Proposition Developer (Education)',
     timestamp: new Date().toISOString()
   })
 })

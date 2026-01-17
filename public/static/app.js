@@ -105,7 +105,7 @@ function renderApp() {
           <div class="flex items-center space-x-4">
             <img src="https://www.mtn.com/wp-content/themes/mtn-refresh/img/logo.svg" alt="MTN" class="h-8" onerror="this.style.display='none'">
             <div>
-              <h1 class="text-xl font-bold text-gray-800">MTN Education Solution Developer</h1>
+              <h1 class="text-xl font-bold text-gray-800">AI-Value Proposition Developer (Education)</h1>
               <div class="flex items-center space-x-2 text-sm">
                 <span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded text-xs font-semibold">DEMO MODE</span>
                 <span class="text-gray-500">Step ${appState.currentStep + 1} of ${steps.length}</span>
