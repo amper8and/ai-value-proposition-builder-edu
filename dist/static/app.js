@@ -75,7 +75,7 @@ function renderApp() {
       <div class="w-64 bg-white shadow-lg flex flex-col">
         <div class="p-4 border-b">
           <div class="text-lg font-bold text-yellow-400">MTN Education</div>
-          <div class="text-xs text-gray-500">Solution Developer</div>
+          <div class="text-xs text-gray-500">Value Proposition</div>
         </div>
         
         <!-- Navigation Steps -->
