@@ -128,13 +128,13 @@ function renderApp() {
       </div>
       
       <!-- Right Panel: Deal Summary -->
-      <div class="w-80 bg-white shadow-lg border-l overflow-y-auto">
-        ${renderDealSummary()}
+      <div class="w-80 bg-white shadow-lg border-l overflow-y-auto flex flex-col">
+        <div class="flex-1">
+          ${renderDealSummary()}
+        </div>
+        ${appState.guidedDemo ? renderGuidedTooltip() : ''}
       </div>
     </div>
-    
-    <!-- Guided Demo Tooltip -->
-    ${appState.guidedDemo ? renderGuidedTooltip() : ''}
   `;
   
   // Re-attach event listeners for dynamic content
@@ -951,12 +951,12 @@ function renderGuidedTooltip() {
   };
   
   return `
-    <div class="fixed bottom-6 right-96 bg-yellow-400 text-yellow-900 px-4 py-3 rounded-lg shadow-lg max-w-xs animate-bounce">
-      <div class="font-semibold mb-1">
-        <i class="fas fa-lightbulb mr-2"></i>
+    <div class="mt-auto p-4 bg-yellow-400 text-black border-t-2 border-yellow-500">
+      <div class="font-semibold mb-2 flex items-center">
+        <i class="fas fa-lightbulb mr-2 animate-pulse"></i>
         Guided Demo
       </div>
-      <div class="text-sm">
+      <div class="text-sm leading-relaxed">
         ${tooltips[appState.currentStep]}
       </div>
     </div>
