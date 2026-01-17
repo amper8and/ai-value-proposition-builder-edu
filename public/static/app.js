@@ -113,7 +113,7 @@ function renderApp() {
             </div>
           </div>
           
-          <button onclick="exportOfferBrief()" class="px-4 py-2 bg-yellow-400 text-white rounded hover:bg-yellow-500 font-semibold">
+          <button onclick="exportOfferBrief()" class="px-4 py-2 bg-yellow-400 text-black rounded hover:bg-yellow-500 text-black font-semibold">
             <i class="fas fa-file-export mr-2"></i>
             Export Offer Brief
           </button>
@@ -159,7 +159,7 @@ function renderStepNav(step) {
     >
       <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
         isActive 
-          ? 'bg-yellow-400 text-white' 
+          ? 'bg-yellow-400 text-black' 
           : isCompleted
             ? 'bg-green-600 text-white'
             : 'bg-gray-300 text-gray-600'
@@ -303,7 +303,7 @@ function renderClientProfile() {
       <div class="mt-8 flex justify-end">
         <button 
           onclick="navigateToStep(1)" 
-          class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
+          class="px-6 py-3 bg-yellow-400 text-black rounded-lg hover:bg-yellow-500 text-black font-semibold"
         >
           Next: Needs Assessment
           <i class="fas fa-arrow-right ml-2"></i>
@@ -353,7 +353,7 @@ function renderNeedsAssessment() {
                 ${[1,2,3,4,5].map(val => `
                   <button 
                     onclick="updateNeedsAssessment('${category.id}', ${val})"
-                    class="w-8 h-8 rounded ${(needs[category.id] || 0) === val ? 'bg-yellow-400 text-white' : 'bg-gray-200 text-gray-600'} text-sm font-semibold hover:bg-yellow-300 hover:text-white"
+                    class="w-8 h-8 rounded ${(needs[category.id] || 0) === val ? 'bg-yellow-400 text-black' : 'bg-gray-200 text-gray-600'} text-sm font-semibold hover:bg-yellow-300 hover:text-black"
                   >
                     ${val}
                   </button>
@@ -386,7 +386,7 @@ function renderNeedsAssessment() {
         
         <button 
           onclick="generateRecommendations()" 
-          class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
+          class="px-6 py-3 bg-yellow-400 text-black rounded-lg hover:bg-yellow-500 text-black font-semibold"
         >
           <i class="fas fa-magic mr-2"></i>
           Generate Recommendations
@@ -412,7 +412,7 @@ function renderRecommendations() {
         ${appState.recommendations.map((rec, index) => `
           <div class="border-2 ${rec.rank === 1 ? 'border-yellow-300 bg-yellow-50' : 'border-gray-300'} rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
-              <span class="px-2 py-1 bg-yellow-400 text-white rounded text-xs font-bold">
+              <span class="px-2 py-1 bg-yellow-400 text-black rounded text-xs font-bold">
                 #${rec.rank} ${rec.rank === 1 ? '🏆 BEST FIT' : ''}
               </span>
               <span class="text-sm text-gray-500">${rec.matchScore}% match</span>
@@ -427,7 +427,7 @@ function renderRecommendations() {
             
             <button 
               onclick="selectBlueprint('${rec.blueprint.id}')" 
-              class="w-full px-4 py-2 ${rec.rank === 1 ? 'bg-yellow-400' : 'bg-gray-600'} text-white rounded hover:opacity-90 font-semibold"
+              class="w-full px-4 py-2 ${rec.rank === 1 ? 'bg-yellow-400 text-black' : 'bg-gray-600 text-white'} rounded hover:opacity-90 font-semibold"
             >
               Select Blueprint
             </button>
@@ -438,7 +438,7 @@ function renderRecommendations() {
       <div class="mt-6 flex justify-end">
         <button 
           onclick="navigateToStep(2)" 
-          class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
+          class="px-6 py-3 bg-yellow-400 text-black rounded-lg hover:bg-yellow-500 text-black font-semibold"
         >
           Continue to Solution Builder
           <i class="fas fa-arrow-right ml-2"></i>
@@ -520,7 +520,7 @@ function renderSolutionBuilder() {
                     </div>
                     <button 
                       onclick="addToConfig('${item.id}')"
-                      class="ml-3 px-3 py-1 bg-yellow-400 text-white rounded text-xs hover:bg-yellow-500"
+                      class="ml-3 px-3 py-1 bg-yellow-400 text-black rounded text-xs hover:bg-yellow-500"
                     >
                       <i class="fas fa-plus"></i>
                     </button>
@@ -587,7 +587,7 @@ function renderSolutionBuilder() {
         
         <button 
           onclick="navigateToStep(3)" 
-          class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
+          class="px-6 py-3 bg-yellow-400 text-black rounded-lg hover:bg-yellow-500 text-black font-semibold"
         >
           Next: Pricing
           <i class="fas fa-arrow-right ml-2"></i>
@@ -797,7 +797,7 @@ function renderPricing() {
           
           <button 
             onclick="navigateToStep(4)" 
-            class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
+            class="px-6 py-3 bg-yellow-400 text-black rounded-lg hover:bg-yellow-500 text-black font-semibold"
           >
             Generate Offer Brief
             <i class="fas fa-arrow-right ml-2"></i>
@@ -843,7 +843,7 @@ function renderOfferBrief() {
           
           <button 
             onclick="exportOfferBrief()" 
-            class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
+            class="px-6 py-3 bg-yellow-400 text-black rounded-lg hover:bg-yellow-500 text-black font-semibold"
           >
             <i class="fas fa-file-pdf mr-2"></i>
             Export to PDF
@@ -1235,7 +1235,7 @@ function generateOfferBriefContent() {
               .filter(cat => (appState.needsAssessment[cat.id] || 0) >= 3)
               .map(cat => `
                 <div class="flex items-center space-x-2 text-sm">
-                  <div class="w-6 h-6 bg-yellow-400 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                  <div class="w-6 h-6 bg-yellow-400 text-black rounded-full flex items-center justify-center text-xs font-bold">
                     ${appState.needsAssessment[cat.id]}
                   </div>
                   <span class="text-gray-700">${cat.name}</span>
