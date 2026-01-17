@@ -1,11 +1,53 @@
-/* MTN Education Solution Developer - Custom Styles */
+/* MTN Education Solution Developer - MTN Branding Styles */
+
+/* MTN Font Family - Brighter Sans */
+@font-face {
+  font-family: 'MTN Brighter Sans';
+  src: url('/static/fonts/MTNBrighterSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MTN Brighter Sans';
+  src: url('/static/fonts/MTNBrighterSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MTN Brighter Sans';
+  src: url('/static/fonts/MTNBrighterSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global font application */
+body, html {
+  font-family: 'MTN Brighter Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+}
+
+/* MTN Color Variables */
+:root {
+  --mtn-yellow: #FFCB00;
+  --mtn-black: #000000;
+  --mtn-yellow-dark: #E6B700;
+  --mtn-yellow-light: #FFD633;
+  --mtn-gray-light: #F5F5F5;
+  --mtn-gray-medium: #999999;
+  --mtn-gray-dark: #333333;
+}
 
 /* Smooth animations */
 * {
   transition: all 0.2s ease;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - MTN colors */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -16,21 +58,21 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #f97316;
+  background: var(--mtn-yellow);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ea580c;
+  background: var(--mtn-yellow-dark);
 }
 
-/* Range slider customization */
+/* Range slider customization - MTN Yellow */
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #f97316;
+  background: var(--mtn-yellow);
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
@@ -39,7 +81,7 @@ input[type="range"]::-moz-range-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #f97316;
+  background: var(--mtn-yellow);
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   border: none;
@@ -50,7 +92,7 @@ input[type="range"]:focus {
 }
 
 input[type="range"]:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 203, 0, 0.3);
 }
 
 /* Bounce animation for guided demo tooltip */
@@ -93,12 +135,12 @@ button:active {
   transform: translateY(0);
 }
 
-/* Focus styles for accessibility */
+/* Focus styles for accessibility - MTN Yellow */
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-  outline: 2px solid #f97316;
+  outline: 2px solid var(--mtn-yellow);
   outline-offset: 2px;
 }
 
@@ -108,9 +150,9 @@ button:focus {
   pointer-events: none;
 }
 
-/* Custom checkbox */
+/* Custom checkbox - MTN Yellow */
 input[type="checkbox"] {
-  accent-color: #f97316;
+  accent-color: var(--mtn-yellow);
   cursor: pointer;
 }
 
@@ -125,13 +167,13 @@ tbody tr:nth-child(even) {
   transform: translateY(-2px);
 }
 
-/* Gradient backgrounds */
-.bg-gradient-orange {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+/* MTN Gradient backgrounds */
+.bg-gradient-mtn {
+  background: linear-gradient(135deg, var(--mtn-yellow) 0%, var(--mtn-yellow-dark) 100%);
 }
 
-.bg-gradient-blue {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+.bg-gradient-mtn-reverse {
+  background: linear-gradient(135deg, var(--mtn-black) 0%, var(--mtn-gray-dark) 100%);
 }
 
 /* Badge styles */
@@ -141,7 +183,7 @@ tbody tr:nth-child(even) {
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -157,8 +199,8 @@ tbody tr:nth-child(even) {
   left: 50%;
   transform: translateX(-50%);
   padding: 0.5rem;
-  background: #1f2937;
-  color: white;
+  background: var(--mtn-black);
+  color: var(--mtn-yellow);
   border-radius: 0.375rem;
   font-size: 0.75rem;
   white-space: nowrap;
@@ -184,7 +226,7 @@ tbody tr:nth-child(even) {
 }
 
 .progress-step.completed::after {
-  background: #22c55e;
+  background: var(--mtn-yellow);
 }
 
 /* Responsive utilities */
@@ -207,7 +249,7 @@ tbody tr:nth-child(even) {
   color: #9ca3af;
 }
 
-/* Alert styling */
+/* Alert styling - MTN colors */
 .alert {
   padding: 1rem;
   border-radius: 0.5rem;
@@ -216,20 +258,20 @@ tbody tr:nth-child(even) {
 }
 
 .alert-warning {
-  background: #fef3c7;
-  border-color: #f59e0b;
-  color: #92400e;
+  background: #FFF9E6;
+  border-color: var(--mtn-yellow);
+  color: var(--mtn-black);
 }
 
 .alert-info {
-  background: #dbeafe;
-  border-color: #3b82f6;
-  color: #1e3a8a;
+  background: #F5F5F5;
+  border-color: var(--mtn-black);
+  color: var(--mtn-black);
 }
 
 .alert-success {
-  background: #d1fae5;
-  border-color: #10b981;
+  background: #E6F9E6;
+  border-color: #22c55e;
   color: #065f46;
 }
 
@@ -270,7 +312,7 @@ tbody tr:nth-child(even) {
   border-style: dashed;
 }
 
-/* Status indicators */
+/* Status indicators - MTN Yellow */
 .status-dot {
   display: inline-block;
   width: 8px;
@@ -280,8 +322,8 @@ tbody tr:nth-child(even) {
 }
 
 .status-dot.active {
-  background: #22c55e;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+  background: var(--mtn-yellow);
+  box-shadow: 0 0 0 3px rgba(255, 203, 0, 0.3);
 }
 
 .status-dot.inactive {
@@ -289,5 +331,93 @@ tbody tr:nth-child(even) {
 }
 
 .status-dot.pending {
-  background: #f59e0b;
+  background: var(--mtn-yellow-dark);
+}
+
+/* MTN-specific button styles */
+.btn-mtn-primary {
+  background: var(--mtn-yellow);
+  color: var(--mtn-black);
+  font-weight: 700;
+}
+
+.btn-mtn-primary:hover {
+  background: var(--mtn-yellow-dark);
+}
+
+.btn-mtn-secondary {
+  background: var(--mtn-black);
+  color: var(--mtn-yellow);
+  font-weight: 700;
+}
+
+.btn-mtn-secondary:hover {
+  background: var(--mtn-gray-dark);
+}
+
+/* MTN Logo styling helper */
+.mtn-logo-text {
+  font-family: 'MTN Brighter Sans', sans-serif;
+  font-weight: 700;
+  color: var(--mtn-yellow);
+  letter-spacing: 0.05em;
+}
+
+/* Headings with MTN Bold font */
+h1, h2, h3, h4, h5, h6,
+.font-bold,
+.font-semibold {
+  font-family: 'MTN Brighter Sans', sans-serif;
+  font-weight: 700;
+}
+
+/* Light weight text */
+.font-light {
+  font-family: 'MTN Brighter Sans', sans-serif;
+  font-weight: 300;
+}
+
+/* MTN Yellow highlights */
+.text-mtn-yellow {
+  color: var(--mtn-yellow);
+}
+
+.bg-mtn-yellow {
+  background-color: var(--mtn-yellow);
+}
+
+.border-mtn-yellow {
+  border-color: var(--mtn-yellow);
+}
+
+.text-mtn-black {
+  color: var(--mtn-black);
+}
+
+.bg-mtn-black {
+  background-color: var(--mtn-black);
+}
+
+.border-mtn-black {
+  border-color: var(--mtn-black);
+}
+
+/* MTN-styled cards */
+.mtn-card {
+  border: 2px solid var(--mtn-black);
+  border-radius: 0.5rem;
+  background: white;
+}
+
+.mtn-card-yellow {
+  border: 2px solid var(--mtn-yellow);
+  background: #FFF9E6;
+}
+
+/* MTN-styled inputs */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--mtn-yellow);
+  box-shadow: 0 0 0 3px rgba(255, 203, 0, 0.1);
 }

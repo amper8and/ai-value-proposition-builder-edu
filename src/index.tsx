@@ -20,13 +20,27 @@ app.get('/', (c) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MTN Education Solution Developer (Demo)</title>
         
-        <!-- Tailwind CSS -->
+        <!-- Tailwind CSS with MTN Colors -->
         <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                  'mtn-yellow': '#FFCB00',
+                  'mtn-black': '#000000',
+                  'mtn-yellow-dark': '#E6B700',
+                  'mtn-yellow-light': '#FFD633',
+                }
+              }
+            }
+          }
+        </script>
         
         <!-- Font Awesome -->
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         
-        <!-- Custom CSS -->
+        <!-- Custom CSS with MTN Fonts -->
         <link href="/static/styles.css" rel="stylesheet">
         
         <!-- Favicon -->
@@ -37,7 +51,7 @@ app.get('/', (c) => {
             <!-- Loading state -->
             <div class="flex items-center justify-center h-screen">
                 <div class="text-center">
-                    <i class="fas fa-spinner fa-spin text-orange-600 text-4xl mb-4"></i>
+                    <i class="fas fa-spinner fa-spin text-yellow-400 text-4xl mb-4"></i>
                     <p class="text-gray-600">Loading MTN Education Solution Developer...</p>
                 </div>
             </div>
@@ -95,12 +109,25 @@ app.notFound((c) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>404 - Not Found</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                  'mtn-yellow': '#FFCB00',
+                  'mtn-black': '#000000',
+                  'mtn-yellow-dark': '#E6B700',
+                }
+              }
+            }
+          }
+        </script>
     </head>
     <body class="bg-gray-50 flex items-center justify-center h-screen">
         <div class="text-center">
-            <h1 class="text-6xl font-bold text-orange-600 mb-4">404</h1>
+            <h1 class="text-6xl font-bold text-black mb-4">404</h1>
             <p class="text-xl text-gray-600 mb-4">Page not found</p>
-            <a href="/" class="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 inline-block">
+            <a href="/" class="px-6 py-3 bg-mtn-yellow text-black rounded-lg hover:bg-mtn-yellow-dark font-bold inline-block">
                 Return to Home
             </a>
         </div>

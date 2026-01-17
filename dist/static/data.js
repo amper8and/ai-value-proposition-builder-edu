@@ -1,7 +1,7 @@
 // MTN Education Solution Developer - Mock Data
 
 // Solution Library Items (30+ items across categories)
-export const solutionLibrary = [
+const solutionLibrary = [
   // Connectivity (8 items)
   {
     id: 'conn-001',
@@ -420,7 +420,7 @@ export const solutionLibrary = [
 ];
 
 // Prebuilt Solution Blueprints (5 blueprints)
-export const blueprints = [
+const blueprints = [
   {
     id: 'bp-001',
     name: 'Always-On Connected School',
@@ -513,7 +513,7 @@ export const blueprints = [
 ];
 
 // Demo defaults for Client Profile
-export const demoDefaults = {
+const demoDefaults = {
   clientName: 'Gauteng District 12 Education',
   buyerType: 'District',
   province: 'Gauteng',
@@ -525,7 +525,7 @@ export const demoDefaults = {
 };
 
 // South African provinces
-export const provinces = [
+const provinces = [
   'Eastern Cape',
   'Free State',
   'Gauteng',
@@ -538,7 +538,7 @@ export const provinces = [
 ];
 
 // Buyer types
-export const buyerTypes = [
+const buyerTypes = [
   'DBE',
   'PED',
   'District',
@@ -548,7 +548,7 @@ export const buyerTypes = [
 ];
 
 // Need categories for assessment
-export const needCategories = [
+const needCategories = [
   {
     id: 'reliability',
     name: 'Reliability (Always-On)',

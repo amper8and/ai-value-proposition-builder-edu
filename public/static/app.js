@@ -74,7 +74,7 @@ function renderApp() {
       <!-- Left Sidebar -->
       <div class="w-64 bg-white shadow-lg flex flex-col">
         <div class="p-4 border-b">
-          <div class="text-lg font-bold text-orange-600">MTN Education</div>
+          <div class="text-lg font-bold text-yellow-400">MTN Education</div>
           <div class="text-xs text-gray-500">Solution Developer</div>
         </div>
         
@@ -113,7 +113,7 @@ function renderApp() {
             </div>
           </div>
           
-          <button onclick="exportOfferBrief()" class="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700 font-semibold">
+          <button onclick="exportOfferBrief()" class="px-4 py-2 bg-yellow-400 text-white rounded hover:bg-yellow-500 font-semibold">
             <i class="fas fa-file-export mr-2"></i>
             Export Offer Brief
           </button>
@@ -151,7 +151,7 @@ function renderStepNav(step) {
       onclick="navigateToStep(${step.id})" 
       class="w-full flex items-center p-3 rounded-lg transition-colors ${
         isActive 
-          ? 'bg-orange-50 text-orange-600 border border-orange-200' 
+          ? 'bg-yellow-50 text-yellow-400 border border-yellow-200' 
           : isCompleted
             ? 'bg-green-50 text-green-700 border border-green-200 hover:bg-green-100'
             : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100'
@@ -159,7 +159,7 @@ function renderStepNav(step) {
     >
       <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
         isActive 
-          ? 'bg-orange-600 text-white' 
+          ? 'bg-yellow-400 text-white' 
           : isCompleted
             ? 'bg-green-600 text-white'
             : 'bg-gray-300 text-gray-600'
@@ -193,7 +193,7 @@ function renderClientProfile() {
   return `
     <div class="bg-white rounded-lg shadow-sm p-6">
       <h2 class="text-2xl font-bold mb-6 text-gray-800">
-        <i class="fas fa-user text-orange-600 mr-2"></i>
+        <i class="fas fa-user text-yellow-400 mr-2"></i>
         Client Profile
       </h2>
       
@@ -205,7 +205,7 @@ function renderClientProfile() {
             id="clientName" 
             value="${profile.clientName || ''}" 
             onchange="updateClientProfile('clientName', this.value)"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-yellow-300"
             placeholder="e.g., Gauteng District 12"
           >
         </div>
@@ -215,7 +215,7 @@ function renderClientProfile() {
           <select 
             id="buyerType" 
             onchange="updateClientProfile('buyerType', this.value)"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-yellow-300"
           >
             ${buyerTypes.map(type => `
               <option value="${type}" ${profile.buyerType === type ? 'selected' : ''}>${type}</option>
@@ -228,7 +228,7 @@ function renderClientProfile() {
           <select 
             id="province" 
             onchange="updateClientProfile('province', this.value)"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-yellow-300"
           >
             ${provinces.map(prov => `
               <option value="${prov}" ${profile.province === prov ? 'selected' : ''}>${prov}</option>
@@ -243,7 +243,7 @@ function renderClientProfile() {
             id="numSites" 
             value="${profile.numSites || 0}" 
             onchange="updateClientProfile('numSites', parseInt(this.value))"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-yellow-300"
             min="1"
           >
         </div>
@@ -255,7 +255,7 @@ function renderClientProfile() {
             id="numLearners" 
             value="${profile.numLearners || 0}" 
             onchange="updateClientProfile('numLearners', parseInt(this.value))"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-yellow-300"
             min="0"
           >
         </div>
@@ -267,7 +267,7 @@ function renderClientProfile() {
             id="numTeachers" 
             value="${profile.numTeachers || 0}" 
             onchange="updateClientProfile('numTeachers', parseInt(this.value))"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-yellow-300"
             min="0"
           >
         </div>
@@ -277,7 +277,7 @@ function renderClientProfile() {
           <select 
             id="fundingPosture" 
             onchange="updateClientProfile('fundingPosture', this.value)"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-yellow-300"
           >
             <option value="Budget Confirmed" ${profile.fundingPosture === 'Budget Confirmed' ? 'selected' : ''}>Budget Confirmed</option>
             <option value="Budget Pending" ${profile.fundingPosture === 'Budget Pending' ? 'selected' : ''}>Budget Pending</option>
@@ -290,7 +290,7 @@ function renderClientProfile() {
           <select 
             id="connectivityStatus" 
             onchange="updateClientProfile('connectivityStatus', this.value)"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-yellow-300"
           >
             <option value="None" ${profile.connectivityStatus === 'None' ? 'selected' : ''}>None</option>
             <option value="Basic" ${profile.connectivityStatus === 'Basic' ? 'selected' : ''}>Basic</option>
@@ -303,7 +303,7 @@ function renderClientProfile() {
       <div class="mt-8 flex justify-end">
         <button 
           onclick="navigateToStep(1)" 
-          class="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold"
+          class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
         >
           Next: Needs Assessment
           <i class="fas fa-arrow-right ml-2"></i>
@@ -320,7 +320,7 @@ function renderNeedsAssessment() {
   return `
     <div class="bg-white rounded-lg shadow-sm p-6">
       <h2 class="text-2xl font-bold mb-6 text-gray-800">
-        <i class="fas fa-clipboard-list text-orange-600 mr-2"></i>
+        <i class="fas fa-clipboard-list text-yellow-400 mr-2"></i>
         Needs Assessment
       </h2>
       
@@ -334,7 +334,7 @@ function renderNeedsAssessment() {
                 <h3 class="font-semibold text-gray-800">${category.name}</h3>
                 <p class="text-sm text-gray-600 mt-1">${category.description}</p>
               </div>
-              <div class="ml-4 text-2xl font-bold text-orange-600 w-12 text-center">
+              <div class="ml-4 text-2xl font-bold text-yellow-400 w-12 text-center">
                 ${needs[category.id] || 0}
               </div>
             </div>
@@ -347,13 +347,13 @@ function renderNeedsAssessment() {
                 value="${needs[category.id] || 0}"
                 onchange="updateNeedsAssessment('${category.id}', parseInt(this.value))"
                 class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                style="accent-color: #f97316;"
+                style="accent-color: #FFCB00;"
               >
               <div class="flex space-x-1">
                 ${[1,2,3,4,5].map(val => `
                   <button 
                     onclick="updateNeedsAssessment('${category.id}', ${val})"
-                    class="w-8 h-8 rounded ${(needs[category.id] || 0) === val ? 'bg-orange-600 text-white' : 'bg-gray-200 text-gray-600'} text-sm font-semibold hover:bg-orange-500 hover:text-white"
+                    class="w-8 h-8 rounded ${(needs[category.id] || 0) === val ? 'bg-yellow-400 text-white' : 'bg-gray-200 text-gray-600'} text-sm font-semibold hover:bg-yellow-300 hover:text-white"
                   >
                     ${val}
                   </button>
@@ -369,7 +369,7 @@ function renderNeedsAssessment() {
         <textarea 
           id="discoveryNotes"
           onchange="updateNeedsAssessment('discoveryNotes', this.value)"
-          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-yellow-300"
           rows="4"
           placeholder="Add any additional context, challenges, or opportunities discovered during client meetings..."
         >${needs.discoveryNotes || ''}</textarea>
@@ -386,7 +386,7 @@ function renderNeedsAssessment() {
         
         <button 
           onclick="generateRecommendations()" 
-          class="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold"
+          class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
         >
           <i class="fas fa-magic mr-2"></i>
           Generate Recommendations
@@ -404,15 +404,15 @@ function renderRecommendations() {
   return `
     <div class="mt-8 border-t pt-8">
       <h3 class="text-xl font-bold mb-4 text-gray-800">
-        <i class="fas fa-robot text-orange-600 mr-2"></i>
+        <i class="fas fa-robot text-yellow-400 mr-2"></i>
         AI-Assisted Recommendations
       </h3>
       
       <div class="grid grid-cols-3 gap-4">
         ${appState.recommendations.map((rec, index) => `
-          <div class="border-2 ${rec.rank === 1 ? 'border-orange-500 bg-orange-50' : 'border-gray-300'} rounded-lg p-4">
+          <div class="border-2 ${rec.rank === 1 ? 'border-yellow-300 bg-yellow-50' : 'border-gray-300'} rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
-              <span class="px-2 py-1 bg-orange-600 text-white rounded text-xs font-bold">
+              <span class="px-2 py-1 bg-yellow-400 text-white rounded text-xs font-bold">
                 #${rec.rank} ${rec.rank === 1 ? '🏆 BEST FIT' : ''}
               </span>
               <span class="text-sm text-gray-500">${rec.matchScore}% match</span>
@@ -427,7 +427,7 @@ function renderRecommendations() {
             
             <button 
               onclick="selectBlueprint('${rec.blueprint.id}')" 
-              class="w-full px-4 py-2 ${rec.rank === 1 ? 'bg-orange-600' : 'bg-gray-600'} text-white rounded hover:opacity-90 font-semibold"
+              class="w-full px-4 py-2 ${rec.rank === 1 ? 'bg-yellow-400' : 'bg-gray-600'} text-white rounded hover:opacity-90 font-semibold"
             >
               Select Blueprint
             </button>
@@ -438,7 +438,7 @@ function renderRecommendations() {
       <div class="mt-6 flex justify-end">
         <button 
           onclick="navigateToStep(2)" 
-          class="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold"
+          class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
         >
           Continue to Solution Builder
           <i class="fas fa-arrow-right ml-2"></i>
@@ -456,7 +456,7 @@ function renderSolutionBuilder() {
   return `
     <div class="bg-white rounded-lg shadow-sm p-6">
       <h2 class="text-2xl font-bold mb-6 text-gray-800">
-        <i class="fas fa-cubes text-orange-600 mr-2"></i>
+        <i class="fas fa-cubes text-yellow-400 mr-2"></i>
         Solution Builder
       </h2>
       
@@ -482,7 +482,7 @@ function renderSolutionBuilder() {
             ${categories.map(cat => `
               <button 
                 onclick="selectSolutionCategory('${cat}')"
-                class="w-full text-left px-3 py-2 rounded ${selectedCategory === cat ? 'bg-orange-100 text-orange-600 font-semibold' : 'text-gray-700 hover:bg-gray-100'}"
+                class="w-full text-left px-3 py-2 rounded ${selectedCategory === cat ? 'bg-yellow-100 text-yellow-400 font-semibold' : 'text-gray-700 hover:bg-gray-100'}"
               >
                 ${cat}
                 <span class="float-right text-xs">${solutionLibrary.filter(i => i.category === cat).length}</span>
@@ -508,19 +508,19 @@ function renderSolutionBuilder() {
             ${solutionLibrary
               .filter(item => item.category === selectedCategory)
               .map(item => `
-                <div class="border border-gray-200 rounded-lg p-3 hover:border-orange-300">
+                <div class="border border-gray-200 rounded-lg p-3 hover:border-yellow-300">
                   <div class="flex items-start justify-between">
                     <div class="flex-1">
                       <h4 class="font-semibold text-sm text-gray-800">${item.name}</h4>
                       <p class="text-xs text-gray-600 mt-1">${item.description}</p>
                       <div class="mt-2 flex items-center space-x-2 text-xs">
                         <span class="px-2 py-0.5 bg-gray-100 rounded">${item.chargeType}</span>
-                        <span class="font-semibold text-orange-600">R${item.unitPrice.toLocaleString()}</span>
+                        <span class="font-semibold text-yellow-400">R${item.unitPrice.toLocaleString()}</span>
                       </div>
                     </div>
                     <button 
                       onclick="addToConfig('${item.id}')"
-                      class="ml-3 px-3 py-1 bg-orange-600 text-white rounded text-xs hover:bg-orange-700"
+                      class="ml-3 px-3 py-1 bg-yellow-400 text-white rounded text-xs hover:bg-yellow-500"
                     >
                       <i class="fas fa-plus"></i>
                     </button>
@@ -587,7 +587,7 @@ function renderSolutionBuilder() {
         
         <button 
           onclick="navigateToStep(3)" 
-          class="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold"
+          class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
         >
           Next: Pricing
           <i class="fas fa-arrow-right ml-2"></i>
@@ -656,7 +656,7 @@ function renderPricing() {
   return `
     <div class="bg-white rounded-lg shadow-sm p-6">
       <h2 class="text-2xl font-bold mb-6 text-gray-800">
-        <i class="fas fa-calculator text-orange-600 mr-2"></i>
+        <i class="fas fa-calculator text-yellow-400 mr-2"></i>
         Pricing & Commercials
       </h2>
       
@@ -682,7 +682,7 @@ function renderPricing() {
             value="${appState.pricing.discount}"
             onchange="updatePricing('discount', parseInt(this.value))"
             class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-            style="accent-color: #f97316;"
+            style="accent-color: #FFCB00;"
           >
           <div class="flex justify-between text-xs text-gray-500 mt-1">
             <span>0%</span>
@@ -697,7 +697,7 @@ function renderPricing() {
               type="checkbox" 
               ${appState.pricing.escalation ? 'checked' : ''}
               onchange="updatePricing('escalation', this.checked)"
-              class="w-5 h-5 text-orange-600 rounded"
+              class="w-5 h-5 text-yellow-400 rounded"
             >
             <span class="text-sm text-gray-700">+5% annually on recurring</span>
           </label>
@@ -706,9 +706,9 @@ function renderPricing() {
       
       <!-- Pricing Summary Cards -->
       <div class="grid grid-cols-4 gap-4 mb-8">
-        <div class="bg-orange-50 border border-orange-200 rounded-lg p-4">
-          <div class="text-sm text-orange-600 font-semibold mb-1">Once-Off Total</div>
-          <div class="text-2xl font-bold text-orange-600">R${calculations.onceOff.toLocaleString()}</div>
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div class="text-sm text-yellow-400 font-semibold mb-1">Once-Off Total</div>
+          <div class="text-2xl font-bold text-yellow-400">R${calculations.onceOff.toLocaleString()}</div>
         </div>
         
         <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
@@ -769,7 +769,7 @@ function renderPricing() {
                   <span class="font-semibold">R${amount.toLocaleString()} (${percentage}%)</span>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full h-2">
-                  <div class="bg-orange-600 h-2 rounded-full" style="width: ${percentage}%"></div>
+                  <div class="bg-yellow-400 h-2 rounded-full" style="width: ${percentage}%"></div>
                 </div>
               </div>
             `;
@@ -797,7 +797,7 @@ function renderPricing() {
           
           <button 
             onclick="navigateToStep(4)" 
-            class="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold"
+            class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
           >
             Generate Offer Brief
             <i class="fas fa-arrow-right ml-2"></i>
@@ -815,7 +815,7 @@ function renderOfferBrief() {
   return `
     <div class="bg-white rounded-lg shadow-sm p-6">
       <h2 class="text-2xl font-bold mb-6 text-gray-800">
-        <i class="fas fa-file-alt text-orange-600 mr-2"></i>
+        <i class="fas fa-file-alt text-yellow-400 mr-2"></i>
         Offer Brief Preview
       </h2>
       
@@ -843,7 +843,7 @@ function renderOfferBrief() {
           
           <button 
             onclick="exportOfferBrief()" 
-            class="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold"
+            class="px-6 py-3 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 font-semibold"
           >
             <i class="fas fa-file-pdf mr-2"></i>
             Export to PDF
@@ -865,7 +865,7 @@ function renderDealSummary() {
   return `
     <div class="p-6">
       <h3 class="text-lg font-bold mb-4 text-gray-800">
-        <i class="fas fa-handshake text-orange-600 mr-2"></i>
+        <i class="fas fa-handshake text-yellow-400 mr-2"></i>
         Deal Summary
       </h3>
       
@@ -881,15 +881,15 @@ function renderDealSummary() {
             <div class="text-xs text-gray-500 mb-2">Scope</div>
             <div class="grid grid-cols-3 gap-2 text-center">
               <div class="bg-gray-50 rounded p-2">
-                <div class="text-lg font-bold text-orange-600">${profile.numSites || 0}</div>
+                <div class="text-lg font-bold text-yellow-400">${profile.numSites || 0}</div>
                 <div class="text-xs text-gray-600">Sites</div>
               </div>
               <div class="bg-gray-50 rounded p-2">
-                <div class="text-lg font-bold text-orange-600">${(profile.numLearners || 0).toLocaleString()}</div>
+                <div class="text-lg font-bold text-yellow-400">${(profile.numLearners || 0).toLocaleString()}</div>
                 <div class="text-xs text-gray-600">Learners</div>
               </div>
               <div class="bg-gray-50 rounded p-2">
-                <div class="text-lg font-bold text-orange-600">${profile.numTeachers || 0}</div>
+                <div class="text-lg font-bold text-yellow-400">${profile.numTeachers || 0}</div>
                 <div class="text-xs text-gray-600">Teachers</div>
               </div>
             </div>
@@ -906,7 +906,7 @@ function renderDealSummary() {
             <div class="space-y-2">
               <div class="flex justify-between">
                 <span class="text-xs text-gray-600">Once-Off</span>
-                <span class="text-sm font-semibold text-orange-600">R${calculations.onceOff.toLocaleString()}</span>
+                <span class="text-sm font-semibold text-yellow-400">R${calculations.onceOff.toLocaleString()}</span>
               </div>
               <div class="flex justify-between">
                 <span class="text-xs text-gray-600">Monthly</span>
@@ -1180,25 +1180,25 @@ function generateOfferBriefContent() {
       </div>
       
       <section class="mb-8">
-        <h3 class="text-lg font-bold text-orange-600 mb-3 border-b pb-2">1. Executive Summary</h3>
+        <h3 class="text-lg font-bold text-yellow-400 mb-3 border-b pb-2">1. Executive Summary</h3>
         <p class="text-gray-700 leading-relaxed">
           MTN proposes a comprehensive digital education solution for ${profile.clientName}, designed to transform teaching and learning across ${profile.numSites} sites serving ${profile.numLearners.toLocaleString()} learners and ${profile.numTeachers} educators in ${profile.province}.
         </p>
         <p class="text-gray-700 leading-relaxed mt-3">
           This solution, based on the <strong>${blueprintName}</strong> blueprint, addresses the key educational priorities identified during our needs assessment and aligns with the Department of Basic Education's Digital Learning Framework.
         </p>
-        <div class="mt-4 p-4 bg-orange-50 rounded-lg">
+        <div class="mt-4 p-4 bg-yellow-50 rounded-lg">
           <div class="grid grid-cols-3 gap-4 text-center">
             <div>
-              <div class="text-2xl font-bold text-orange-600">R${calculations.tcv.toLocaleString()}</div>
+              <div class="text-2xl font-bold text-yellow-400">R${calculations.tcv.toLocaleString()}</div>
               <div class="text-xs text-gray-600">Total Contract Value</div>
             </div>
             <div>
-              <div class="text-2xl font-bold text-orange-600">${appState.pricing.contractTerm} months</div>
+              <div class="text-2xl font-bold text-yellow-400">${appState.pricing.contractTerm} months</div>
               <div class="text-xs text-gray-600">Contract Term</div>
             </div>
             <div>
-              <div class="text-2xl font-bold text-orange-600">${appState.solutionConfig.length}</div>
+              <div class="text-2xl font-bold text-yellow-400">${appState.solutionConfig.length}</div>
               <div class="text-xs text-gray-600">Solution Components</div>
             </div>
           </div>
@@ -1206,7 +1206,7 @@ function generateOfferBriefContent() {
       </section>
       
       <section class="mb-8">
-        <h3 class="text-lg font-bold text-orange-600 mb-3 border-b pb-2">2. Client Context & Needs</h3>
+        <h3 class="text-lg font-bold text-yellow-400 mb-3 border-b pb-2">2. Client Context & Needs</h3>
         <div class="grid grid-cols-2 gap-4 mb-4">
           <div>
             <h4 class="font-semibold text-gray-800 mb-2">Client Profile</h4>
@@ -1235,7 +1235,7 @@ function generateOfferBriefContent() {
               .filter(cat => (appState.needsAssessment[cat.id] || 0) >= 3)
               .map(cat => `
                 <div class="flex items-center space-x-2 text-sm">
-                  <div class="w-6 h-6 bg-orange-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                  <div class="w-6 h-6 bg-yellow-400 text-white rounded-full flex items-center justify-center text-xs font-bold">
                     ${appState.needsAssessment[cat.id]}
                   </div>
                   <span class="text-gray-700">${cat.name}</span>
@@ -1253,7 +1253,7 @@ function generateOfferBriefContent() {
       </section>
       
       <section class="mb-8">
-        <h3 class="text-lg font-bold text-orange-600 mb-3 border-b pb-2">3. Proposed Solution</h3>
+        <h3 class="text-lg font-bold text-yellow-400 mb-3 border-b pb-2">3. Proposed Solution</h3>
         <p class="text-gray-700 mb-4">
           The <strong>${blueprintName}</strong> solution comprises ${appState.solutionConfig.length} integrated components across ${Object.keys(calculations.byCategory).length} categories:
         </p>
@@ -1281,7 +1281,7 @@ function generateOfferBriefContent() {
       </section>
       
       <section class="mb-8">
-        <h3 class="text-lg font-bold text-orange-600 mb-3 border-b pb-2">4. Implementation Plan</h3>
+        <h3 class="text-lg font-bold text-yellow-400 mb-3 border-b pb-2">4. Implementation Plan</h3>
         <div class="space-y-4">
           <div>
             <h4 class="font-semibold text-gray-800 mb-2">Phase 1: Pilot (Months 1-2)</h4>
@@ -1316,14 +1316,14 @@ function generateOfferBriefContent() {
       </section>
       
       <section class="mb-8">
-        <h3 class="text-lg font-bold text-orange-600 mb-3 border-b pb-2">5. Commercials Summary</h3>
+        <h3 class="text-lg font-bold text-yellow-400 mb-3 border-b pb-2">5. Commercials Summary</h3>
         <div class="grid grid-cols-2 gap-6">
           <div>
             <h4 class="font-semibold text-gray-800 mb-3">Investment Breakdown</h4>
             <div class="space-y-2 text-sm">
-              <div class="flex justify-between p-2 bg-orange-50 rounded">
+              <div class="flex justify-between p-2 bg-yellow-50 rounded">
                 <span class="text-gray-700">Once-Off Investment</span>
-                <span class="font-bold text-orange-600">R${calculations.onceOff.toLocaleString()}</span>
+                <span class="font-bold text-yellow-400">R${calculations.onceOff.toLocaleString()}</span>
               </div>
               <div class="flex justify-between p-2 bg-blue-50 rounded">
                 <span class="text-gray-700">Monthly Recurring</span>
@@ -1356,7 +1356,7 @@ function generateOfferBriefContent() {
       </section>
       
       <section class="mb-8">
-        <h3 class="text-lg font-bold text-orange-600 mb-3 border-b pb-2">6. Key Performance Indicators (KPIs)</h3>
+        <h3 class="text-lg font-bold text-yellow-400 mb-3 border-b pb-2">6. Key Performance Indicators (KPIs)</h3>
         <div class="grid grid-cols-2 gap-4">
           <div class="border border-gray-200 rounded p-3">
             <h4 class="font-semibold text-gray-800 mb-2">Technical KPIs</h4>
@@ -1381,7 +1381,7 @@ function generateOfferBriefContent() {
       </section>
       
       <section class="mb-8">
-        <h3 class="text-lg font-bold text-orange-600 mb-3 border-b pb-2">7. Risks & Dependencies</h3>
+        <h3 class="text-lg font-bold text-yellow-400 mb-3 border-b pb-2">7. Risks & Dependencies</h3>
         <div class="space-y-3">
           <div class="border-l-4 border-yellow-500 pl-3 py-2 bg-yellow-50">
             <h4 class="font-semibold text-gray-800 text-sm">Infrastructure Readiness</h4>
