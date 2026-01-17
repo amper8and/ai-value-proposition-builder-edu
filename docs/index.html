@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Value Proposition Developer (Education)</title>
+    
+    <!-- Tailwind CSS with MTN Colors -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'mtn-yellow': '#FFCB00',
+              'mtn-black': '#000000',
+              'mtn-yellow-dark': '#E6B700',
+              'mtn-yellow-light': '#FFD633',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS with MTN Fonts -->
+    <link href="./static/styles.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+</head>
+<body class="bg-gray-50 antialiased">
+    <div id="app" class="min-h-screen">
+        <!-- Loading state -->
+        <div class="flex items-center justify-center h-screen">
+            <div class="text-center">
+                <i class="fas fa-spinner fa-spin text-yellow-400 text-4xl mb-4"></i>
+                <p class="text-gray-600">Loading AI-Value Proposition Developer...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Data -->
+    <script src="./static/data.js"></script>
+    
+    <!-- Main Application -->
+    <script src="./static/app.js"></script>
+</body>
+</html>
