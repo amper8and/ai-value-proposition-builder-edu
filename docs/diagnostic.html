@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages Diagnostic Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .status {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .success { border-left: 4px solid #4CAF50; }
+        .error { border-left: 4px solid #f44336; }
+        .warning { border-left: 4px solid #ff9800; }
+        h1 { color: #333; }
+        h2 { color: #666; margin-top: 0; }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .test-result {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .pass { background: #e8f5e9; color: #2e7d32; }
+        .fail { background: #ffebee; color: #c62828; }
+        button {
+            background: #FFCB00;
+            color: black;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #E6B700;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 GitHub Pages Diagnostic Test</h1>
+    <p><strong>Repository:</strong> ai-value-proposition-builder-edu</p>
+    <p><strong>Testing Time:</strong> <span id="timestamp"></span></p>
+
+    <div id="results">
+        <div class="status warning">
+            <h2>⏳ Running Tests...</h2>
+            <p>Testing all static assets and resources...</p>
+        </div>
+    </div>
+
+    <button onclick="runTests()">🔄 Run Tests Again</button>
+    <br><br>
+    <a href="/" style="color: #FFCB00; font-weight: bold;">← Back to Main App</a>
+
+    <script>
+        let testResults = [];
+
+        function updateTimestamp() {
+            document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        }
+
+        async function testResource(name, url, expectedType) {
+            try {
+                const response = await fetch(url, { method: 'HEAD' });
+                const contentType = response.headers.get('content-type') || '';
+                const status = response.status;
+                
+                const pass = status === 200 && contentType.includes(expectedType);
+                
+                return {
+                    name,
+                    url,
+                    pass,
+                    status,
+                    contentType,
+                    expectedType
+                };
+            } catch (error) {
+                return {
+                    name,
+                    url,
+                    pass: false,
+                    error: error.message
+                };
+            }
+        }
+
+        async function testJavaScriptExecution() {
+            try {
+                const dataLoaded = typeof solutionLibrary !== 'undefined';
+                const blueprintsLoaded = typeof blueprints !== 'undefined';
+                const itemCount = dataLoaded ? solutionLibrary.length : 0;
+                
+                return {
+                    name: 'JavaScript Execution',
+                    pass: dataLoaded && blueprintsLoaded && itemCount >= 30,
+                    dataLoaded,
+                    blueprintsLoaded,
+                    itemCount
+                };
+            } catch (error) {
+                return {
+                    name: 'JavaScript Execution',
+                    pass: false,
+                    error: error.message
+                };
+            }
+        }
+
+        async function runTests() {
+            updateTimestamp();
+            
+            const baseUrl = 'https://amper8and.github.io/ai-value-proposition-builder-edu';
+            
+            testResults = [];
+            
+            document.getElementById('results').innerHTML = `
+                <div class="status warning">
+                    <h2>⏳ Running Tests...</h2>
+                    <p>Testing all static assets and resources...</p>
+                </div>
+            `;
+
+            // Test main page
+            testResults.push(await testResource('Main Page', `${baseUrl}/`, 'text/html'));
+            
+            // Test JavaScript files
+            testResults.push(await testResource('app.js', `${baseUrl}/static/app.js`, 'javascript'));
+            testResults.push(await testResource('data.js', `${baseUrl}/static/data.js`, 'javascript'));
+            
+            // Test CSS files
+            testResults.push(await testResource('styles.css', `${baseUrl}/static/styles.css`, 'css'));
+            
+            // Test fonts
+            testResults.push(await testResource('MTN Font (Regular)', `${baseUrl}/static/fonts/MTNBrighterSans-Regular.ttf`, 'font'));
+            testResults.push(await testResource('MTN Font (Light)', `${baseUrl}/static/fonts/MTNBrighterSans-Light.ttf`, 'font'));
+            testResults.push(await testResource('MTN Font (Bold)', `${baseUrl}/static/fonts/MTNBrighterSans-Bold.ttf`, 'font'));
+            
+            // Test JavaScript execution
+            testResults.push(await testJavaScriptExecution());
+
+            displayResults();
+        }
+
+        function displayResults() {
+            const allPassed = testResults.every(r => r.pass);
+            const passCount = testResults.filter(r => r.pass).length;
+            const totalCount = testResults.length;
+
+            let html = `
+                <div class="status ${allPassed ? 'success' : 'error'}">
+                    <h2>${allPassed ? '✅ All Tests Passed!' : '❌ Some Tests Failed'}</h2>
+                    <p><strong>Results:</strong> ${passCount}/${totalCount} tests passed</p>
+                </div>
+            `;
+
+            testResults.forEach(result => {
+                const statusClass = result.pass ? 'pass' : 'fail';
+                const statusIcon = result.pass ? '✅' : '❌';
+                
+                let details = '';
+                if (result.status) {
+                    details = `Status: ${result.status} | Content-Type: ${result.contentType}`;
+                } else if (result.dataLoaded !== undefined) {
+                    details = `Data Loaded: ${result.dataLoaded} | Blueprints: ${result.blueprintsLoaded} | Items: ${result.itemCount}`;
+                } else if (result.error) {
+                    details = `Error: ${result.error}`;
+                }
+
+                html += `
+                    <div class="test-result ${statusClass}">
+                        ${statusIcon} <strong>${result.name}</strong><br>
+                        <small>${details}</small>
+                    </div>
+                `;
+            });
+
+            if (allPassed) {
+                html += `
+                    <div class="status success">
+                        <h2>🎉 Deployment Status</h2>
+                        <p><strong>GitHub Pages is working correctly!</strong></p>
+                        <p>All static assets are accessible and loading properly.</p>
+                        <p>The application should be fully functional.</p>
+                        <br>
+                        <a href="/" style="display: inline-block; background: #FFCB00; color: black; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+                            🚀 Launch Main Application
+                        </a>
+                    </div>
+                `;
+            } else {
+                html += `
+                    <div class="status warning">
+                        <h2>🔧 Troubleshooting Steps</h2>
+                        <ol>
+                            <li><strong>Hard Refresh:</strong> Press Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)</li>
+                            <li><strong>Clear Cache:</strong> Clear your browser's cached images and files</li>
+                            <li><strong>Try Incognito:</strong> Open this page in an incognito/private window</li>
+                            <li><strong>Wait:</strong> GitHub Pages CDN may take 5-10 minutes to propagate</li>
+                            <li><strong>Check Settings:</strong> Verify Pages is enabled in repository settings</li>
+                        </ol>
+                    </div>
+                `;
+            }
+
+            document.getElementById('results').innerHTML = html;
+        }
+
+        // Auto-run tests on page load
+        window.addEventListener('load', () => {
+            updateTimestamp();
+            setTimeout(runTests, 500);
+        });
+    </script>
+</body>
+</html>
