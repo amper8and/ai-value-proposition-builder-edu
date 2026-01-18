@@ -1114,24 +1114,56 @@ function calculatePricing() {
     const item = solutionLibrary.find(i => i.id === configItem.itemId);
     if (!item) return;
     
-    const subtotal = item.unitPrice * configItem.quantity;
-    const discountedSubtotal = subtotal * (1 - appState.pricing.discount / 100);
-    
-    if (item.chargeType === 'once-off') {
-      onceOff += discountedSubtotal;
+    if (item.chargeType === 'hybrid') {
+      // Handle hybrid items with both once-off and monthly charges
+      const onceOffSubtotal = item.unitPrice * configItem.quantity;
+      const monthlySubtotal = (item.monthlyPrice || 0) * configItem.quantity;
+      const discountedOnceOff = onceOffSubtotal * (1 - appState.pricing.discount / 100);
+      const discountedMonthly = monthlySubtotal * (1 - appState.pricing.discount / 100);
+      
+      onceOff += discountedOnceOff;
+      monthly += discountedMonthly;
+      
+      byCategory[item.category] = (byCategory[item.category] || 0) + discountedOnceOff + discountedMonthly;
+      
+      lineItems.push({
+        name: item.name + ' (Once-Off)',
+        chargeType: 'once-off',
+        unitPrice: item.unitPrice,
+        quantity: configItem.quantity,
+        subtotal: Math.round(discountedOnceOff)
+      });
+      
+      if (item.monthlyPrice && item.monthlyPrice > 0) {
+        lineItems.push({
+          name: item.name + ' (Monthly)',
+          chargeType: 'per-month',
+          unitPrice: item.monthlyPrice,
+          quantity: configItem.quantity,
+          subtotal: Math.round(discountedMonthly)
+        });
+      }
     } else {
-      monthly += discountedSubtotal;
+      // Handle regular items
+      const subtotal = item.unitPrice * configItem.quantity;
+      const discountedSubtotal = subtotal * (1 - appState.pricing.discount / 100);
+      
+      if (item.chargeType === 'once-off') {
+        onceOff += discountedSubtotal;
+      } else {
+        monthly += discountedSubtotal;
+      }
+      
+      byCategory[item.category] = (byCategory[item.category] || 0) + discountedSubtotal;
+      
+      lineItems.push({
+        name: item.name,
+        chargeType: item.chargeType,
+        unitPrice: item.unitPrice,
+        quantity: configItem.quantity,
+        subtotal: Math.round(discountedSubtotal)
+      });
     }
-    
-    byCategory[item.category] = (byCategory[item.category] || 0) + discountedSubtotal;
-    
-    lineItems.push({
-      name: item.name,
-      chargeType: item.chargeType,
-      unitPrice: item.unitPrice,
-      quantity: configItem.quantity,
-      subtotal: Math.round(discountedSubtotal)
-    });
   });
   
   // Calculate TCV

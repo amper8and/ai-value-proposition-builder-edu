@@ -416,6 +416,121 @@ const solutionLibrary = [
     unitPrice: 18000,
     defaultQuantityRule: 'per-district',
     dependencies: []
+  },
+
+  // 3rd Party / Other (12 items)
+  {
+    id: 'third-001',
+    name: 'AI Analytics & Workflow',
+    category: '3rd Party / Other',
+    description: 'AI-powered analytics and workflow automation platform for education',
+    chargeType: 'per-month',
+    unitPrice: 0,
+    defaultQuantityRule: 'per-district',
+    dependencies: []
+  },
+  {
+    id: 'third-002',
+    name: 'AI Tutor',
+    category: '3rd Party / Other',
+    description: 'AI-powered personalized tutoring solution for learners',
+    chargeType: 'per-SIM-per-month',
+    unitPrice: 15,
+    defaultQuantityRule: 'per-learner',
+    dependencies: []
+  },
+  {
+    id: 'third-003',
+    name: 'AI Workflow',
+    category: '3rd Party / Other',
+    description: 'Automated workflow management for administrative tasks',
+    chargeType: 'per-SIM-per-month',
+    unitPrice: 15,
+    defaultQuantityRule: 'per-teacher',
+    dependencies: []
+  },
+  {
+    id: 'third-004',
+    name: 'AI Reporting Dashboard',
+    category: '3rd Party / Other',
+    description: 'Real-time reporting dashboard with AI-driven insights',
+    chargeType: 'per-SIM-per-month',
+    unitPrice: 15,
+    defaultQuantityRule: 'per-district',
+    dependencies: []
+  },
+  {
+    id: 'third-005',
+    name: 'AI Analytics Bot',
+    category: '3rd Party / Other',
+    description: 'Conversational AI bot for analytics queries and insights',
+    chargeType: 'once-off',
+    unitPrice: 0,
+    defaultQuantityRule: 'per-district',
+    dependencies: []
+  },
+  {
+    id: 'third-006',
+    name: 'In touch (WhatsApp API & USSD)',
+    category: '3rd Party / Other',
+    description: 'Multi-channel communication platform via WhatsApp API and USSD',
+    chargeType: 'per-SIM-per-month',
+    unitPrice: 5,
+    defaultQuantityRule: 'per-teacher',
+    dependencies: []
+  },
+  {
+    id: 'third-007',
+    name: 'Secure Collaboration',
+    category: '3rd Party / Other',
+    description: 'Secure collaboration and file sharing platform for educators',
+    chargeType: 'per-month',
+    unitPrice: 500,
+    defaultQuantityRule: 'per-site',
+    dependencies: []
+  },
+  {
+    id: 'third-008',
+    name: 'EMIS DB',
+    category: '3rd Party / Other',
+    description: 'Education Management Information System database solution',
+    chargeType: 'hybrid',
+    unitPrice: 1000,
+    monthlyPrice: 250,
+    defaultQuantityRule: 'per-district',
+    dependencies: []
+  },
+  {
+    id: 'third-009',
+    name: 'EMIS Integration',
+    category: '3rd Party / Other',
+    description: 'Integration services for EMIS with existing systems',
+    chargeType: 'hybrid',
+    unitPrice: 2500,
+    monthlyPrice: 500,
+    defaultQuantityRule: 'per-district',
+    dependencies: []
+  },
+  {
+    id: 'third-010',
+    name: 'Power Resilience (UPS)',
+    category: '3rd Party / Other',
+    description: 'Uninterruptible Power Supply for critical infrastructure',
+    chargeType: 'once-off',
+    unitPrice: 25000,
+    defaultQuantityRule: 'per-site',
+    dependencies: []
+  },
+  {
+    id: 'third-011',
+    name: 'CAPS Curriculum (All Grades)',
+    category: '3rd Party / Other',
+    description: 'Complete CAPS curriculum content for all grades delivered via CDN',
+    chargeType: 'hybrid',
+    unitPrice: 2500,
+    monthlyPrice: 50,
+    defaultQuantityRule: 'per-site',
+    dependencies: []
   }
 ];
 
